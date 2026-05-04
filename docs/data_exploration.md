@@ -38,3 +38,14 @@ indexed by `time[]`. Length is 168 (7 days × 24 hours).
 - Schema needs a `locations` table keyed by API-returned (lat, lon).
 - Fact table primary key: (location_id, observed_at).
 - Use `INSERT ... ON CONFLICT DO UPDATE` to handle pipeline retries.
+
+# Milestone 1 — Data Exploration & Quality Summary
+
+## 1. Data Quality Findings
+- **Null Counts**: Confirmed zero missing values across all weather features (Temperature, Humidity, Wind Speed).
+- **Value Ranges**: Verified that temperature (-3.1 to 36.5°C) and humidity (15 to 100%) are within expected meteorological ranges for the selected global cities.
+- **Coordinate Snapping**: Grouped data by city and confirmed that each city has a 1:1 mapping for latitude and longitude.
+- **Time Coverage**: Validated that all 10 cities have a complete record of 168 hours (7 days), covering the period from 2026-05-04 to 2026-05-10.
+
+## 2. Conclusion
+The dataset is clean and meets all data quality requirements for the next phase of the pipeline. No immediate quality issues were found that require data cleaning or imputation.
