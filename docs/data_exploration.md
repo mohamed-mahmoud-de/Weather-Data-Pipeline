@@ -38,6 +38,30 @@ indexed by `time[]`. Length is 168 (7 days × 24 hours).
 - Schema needs a `locations` table keyed by API-returned (lat, lon).
 - Fact table primary key: (location_id, observed_at).
 - Use `INSERT ... ON CONFLICT DO UPDATE` to handle pipeline retries.
+- All time columns must use TIMESTAMPTZ (not TIMESTAMP) to preserve UTC context.
+- All weather columns can be NOT NULL since zero nulls were found across all 10 cities.
+
+### locations table columns
+- id (SERIAL PRIMARY KEY)
+- city_name (TEXT NOT NULL)
+- latitude (FLOAT NOT NULL)
+- longitude (FLOAT NOT NULL)
+- country (TEXT NOT NULL)
+- elevation (FLOAT)
+- timezone (TEXT NOT NULL)
+
+### weather_observations table columns
+- id (SERIAL PRIMARY KEY)
+- location_id (INTEGER REFERENCES locations(id))
+- observed_at (TIMESTAMPTZ NOT NULL)
+- temperature_c (FLOAT NOT NULL)
+- relative_humidity_pct (INTEGER NOT NULL)
+- precipitation_mm (FLOAT NOT NULL)
+- wind_speed_kmh (FLOAT NOT NULL)
+- wind_direction_deg (INTEGER NOT NULL)
+- pressure_hpa (FLOAT NOT NULL)
+- weather_code (INTEGER NOT NULL)
+- UNIQUE(location_id, observed_at)
 
 # Milestone 1 — Data Exploration & Quality Summary
 
