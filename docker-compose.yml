@@ -1,0 +1,17 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: weather-pg
+    environment:
+      POSTGRES_DB: weather_db
+      POSTGRES_USER: weather_user
+      POSTGRES_PASSWORD: weather_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - weather_pg_data:/var/lib/postgresql/data
+      - ./sql/01_create_schema.sql:/docker-entrypoint-initdb.d/01_create_schema.sql
+    restart: unless-stopped
+
+volumes:
+  weather_pg_data:

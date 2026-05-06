@@ -33,6 +33,9 @@ Thumbs.db
 # Keep ONE sample committed manually with: git add -f data/raw/cairo_sample.json
 data/raw/*.json
 
+# ---- Processed / intermediate data ----
+data/processed/
+
 # ---- Logs ----
 *.log
 logs/
