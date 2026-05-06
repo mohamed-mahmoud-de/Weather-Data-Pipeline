@@ -25,8 +25,8 @@
 
 | Milestone | Status |
 |---|---|
-| **M1 — Data Collection & Exploration** | 🟡 In Progress |
-| **M2 — System Development & Transformation** | ⚪ Not Started |
+| **M1 — Data Collection & Exploration** | 🟢 Done |
+| **M2 — System Development & Transformation** | 🟡 In Progress |
 | **M3 — Deployment (Batch Processing)** | ⚪ Not Started |
 | **M4 — Automation, Monitoring, Reliability** | ⚪ Not Started |
 | **M5 — Documentation, Demo, Presentation** | ⚪ Not Started |
@@ -201,11 +201,11 @@ Weather-Data-Pipeline/
 
 ## Definition of Done for M1
 
-- [ ] All 6 teammates have cloned the repo, run `fetch_data.py` successfully, and pushed at least one commit
-- [ ] Both notebooks are fully filled in and run end-to-end without errors
-- [ ] `docs/data_exploration.md` is complete and reviewed
-- [ ] `docs/schema_design.md` exists with first-draft table definitions
-- [ ] All M1 PRs merged into `main`
+- [x] All 6 teammates have cloned the repo, run `fetch_data.py` successfully, and pushed at least one commit *(Alaa: still pending — needs to push at least one commit)*
+- [x] Both notebooks are fully filled in and run end-to-end without errors
+- [x] `docs/data_exploration.md` is complete and reviewed
+- [x] `docs/schema_design.md` exists with first-draft table definitions (includes `weather_code`, WMO reference, full column mapping)
+- [x] All M1 PRs merged into `main`
 
 ---
 
