@@ -97,3 +97,19 @@ Stores hourly weather readings. Each row = one city at one hour. This is the fac
 | `wind_direction_10m` | `wind_direction_deg` | weather_observations |
 | `pressure_msl` | `surface_pressure_hpa` | weather_observations |
 | `weather_code` | `weather_code` | weather_observations |
+# Database Schema Design - Milestone 2
+
+## Overview
+The database is structured to store weather observations and their corresponding locations efficiently.
+
+## Tables
+### 1. `locations`
+- Primary table to store city information (coordinates, timezone, elevation).
+
+### 2. `weather_observations`
+- Stores hourly metrics (temp, humidity, wind, etc.).
+- Linked to `locations` via `location_id`.
+- **Constraint**: Unique on `(location_id, observed_at)` to prevent duplicates.
+
+## ER Diagram Logic
+The relationship is **One-to-Many**: One location can have many hourly weather observations.
