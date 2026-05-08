@@ -9,7 +9,7 @@ from sqlalchemy import create_engine, text
 from sqlalchemy.engine import Engine
 import pandas as pd
 
-logger = logging.getLogger(name)
+logger = logging.getLogger(__name__)
 
 
 # ---------------------------------------------------------------------------
